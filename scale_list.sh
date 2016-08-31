@@ -21,6 +21,10 @@ view_list(){
 	echo "Total Items [ ${__records[0]} ]"
 	}	
 
+help_menu(){
+	printf "\033[33mBlacklist\033[0m \033[32mD\033[0m\033[31mB\033[0m v1.0\n"
+	printf "\033[36mView Entries\033[0m\t[\033[32m -v, -view, --view\033[0m ] [ DATABASE_FILENAME ]\n"
+	}
 
 case $option in
 	-v|-view|--view) 
@@ -30,6 +34,9 @@ case $option in
 	else
 		printf "\033[35mError:\033[0m\tUnable to find filename \033[45m'$2'\033[0m\n" 
 	fi
+	;;	
+	-h|-help|--help) help_menu;;
+	*) printf "\033[35mError:\033[0m\tMissing or invalid parameter was entered!\n"
+	printf "\033[33mTry\033[0m \033[45m'-h'\033[0m \033[35mto view options.\033[0m\n"
 	;;
-	*) printf "\033[35mError:\033[0m\tMissing or invalid parameter was entered!\n";;
 esac
